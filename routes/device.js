@@ -8,7 +8,6 @@ const authorizeRole = require('../utils/authorizeRole');
 
 router.get('/dashboard-device/:type', authenticateJWT, authorizeRole('superuser', 'user', 'atasan'), deviceController.getDashboardDeviceByType);
 
-// Rute untuk mendapatkan semua part_box dari device_produksi
 router.get('/all-device', authenticateJWT, authorizeRole('superuser', 'atasan', 'user'), deviceController.getAllDevice);
 
 router.get('/status-count/:type', authenticateJWT, authorizeRole('superuser', 'atasan', 'user'), deviceController.getDeviceStatusCount);
