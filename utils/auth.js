@@ -4,7 +4,7 @@ require('dotenv').config();
 exports.generateToken = (user) => {
     const payload = {
         id_user: user.id,
-        username: user.username, // Menggunakan username sebagai pengenal utama
+        username: user.username,
         role: user.role
     };
 
@@ -17,7 +17,7 @@ exports.verifyToken = (token) => {
             if (err) {
                 return reject(err);
             }
-            resolve(decoded); // decoded berisi id_user, name, dan role dari payload
+            resolve(decoded);
         });
     });
 };
