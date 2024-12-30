@@ -1,4 +1,4 @@
-const pool = require('../config/db'); // Pastikan untuk mengimpor koneksi database
+const pool = require('../config/db'); 
 
 // Utility untuk menghasilkan ID baru untuk barang masuk
 const generateNewId = async () => {
@@ -16,14 +16,11 @@ const generateNewId = async () => {
             let newId;
 
             if (result.length > 0) {
-                // Ambil ID terakhir
+      
                 const lastId = result[0].id_masuk;
-                // Ambil nomor urut dari ID terakhir
-                const lastIdNumber = parseInt(lastId.slice(2)); // Mengambil angka setelah 'BM'
-                // Tambah 1 untuk ID baru
-                newId = `BM${String(lastIdNumber + 1).padStart(3, '0')}`; // Membuat ID baru dengan format BMxxx
+                const lastIdNumber = parseInt(lastId.slice(2)); 
+                newId = `BM${String(lastIdNumber + 1).padStart(3, '0')}`; 
             } else {
-                // Jika tidak ada barang masuk sebelumnya, mulai dari BM001
                 newId = 'BM001';
             }
 
@@ -32,4 +29,4 @@ const generateNewId = async () => {
     });
 };
 
-module.exports = { generateNewId }; // Ekspor fungsi agar bisa digunakan di controller
+module.exports = { generateNewId }; 
