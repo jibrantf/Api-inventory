@@ -7,8 +7,6 @@ exports.authenticateJWT = (req, res, next) => {
     if (!token) {
         return res.status(403).json({ message: 'Token tidak ditemukan' });
     }
-
-    // Menghilangkan "Bearer " dari token
     const bearerToken = token.split(' ')[1];
 
     jwt.verify(bearerToken, process.env.JWT_SECRET, (err, decoded) => {
